@@ -1,5 +1,5 @@
 {
-  "name": "@zofai/reliability-bench",
+  "name": "@zof-ai/reliability-bench",
   "version": "0.1.0",
   "description": "Transparent reproducible synthetic software reliability benchmark",
   "type": "module",
@@ -57,7 +57,7 @@
     "@types/node": "22.19.11"
   },
   "dependencies": {
-    "@zofai/evidence-spec": "0.1.0",
-    "@zofai/failure-lab": "0.1.0"
+    "@zof-ai/evidence-spec": "0.1.0",
+    "@zof-ai/failure-lab": "0.1.0"
   }
 }
