@@ -2,7 +2,7 @@
 import {parseArgs} from 'node:util';import {runBenchmark,compareReferences,toMarkdown,listEvaluationTasks} from './index.js';
 try{const {values,positionals}=parseArgs({options:{variant:{type:'string',default:'fixed'},iterations:{type:'string',default:'1'},format:{type:'string',default:'json'},help:{type:'boolean'},version:{type:'boolean'}},allowPositionals:true});
  if(values.help)console.log('Usage: zof-reliability-bench run --variant broken|fixed [--iterations 1..10] [--format json|markdown] | compare | tasks');
- else if(values.version)console.log('0.1.0');
+ else if(values.version)console.log('0.1.1');
  else if(positionals.length!==1)throw new Error('usage');
  else if(positionals[0]==='tasks')console.log(JSON.stringify(listEvaluationTasks(),null,2));
  else if(positionals[0]==='compare')console.log(JSON.stringify(await compareReferences(),null,2));
