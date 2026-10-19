@@ -1,0 +1,13 @@
+# Benchmark 1.0.0 methodology
+
+Each scenario produces an observed state after a deterministic fault and compares that state with an independently declared expected corrected state using strict deep equality. Correctness is one point per case. The score is `100 * passed cases / executed cases`; every case and iteration has equal weight. Timing records wall-clock milliseconds but does not affect the score. Failed tests remain failed evidence even when failure is intentionally expected for the defective reference.
+
+Cases: duplicate payment, concurrent inventory, partial SQLite transaction, unsafe timeout retry, repeated message, cache inconsistency, expired token, breaking API response, breaking SQLite migration, duplicate background job, and file-handle cleanup. The first ten are imported from failure-lab 0.1.0; the extra case opens a temporary file, injects a processing exception and measures whether the application branch closes its handle. The harness then cleans the intentionally leaked handle in both branches.
+
+Categories: idempotency, concurrency, API compatibility, database migrations, retry safety, error handling, resource cleanup, data consistency, authentication behavior and regression prevention. The two idempotency cases each carry a point; categories are descriptive, not a balanced statistical sample.
+
+Reference implementations are selected explicitly as broken or fixed. A benchmark run actually executes the selected branch; no recorded or fabricated result is substituted. The acceptance suite checks that defective reference scores 0/11 and fixed reference scores 11/11. Repeated runs use fresh state. Evidence records tool version, suite version, operating system, architecture and Node version. Pin package locks, Node version and input suite version for reproducibility; elapsed times will vary by host.
+
+The task fixtures are public and are not hidden tests. Passing them does not establish generalization, security, production reliability or absence of defects. No third-party tool ranking is implied. No arbitrary tool command, untrusted candidate or hosted service is executed here. The agent-evals package provides explicit Docker isolation for supplied candidates. The fixture suite models discrete faults and is too small for statistical claims about real systems.
+
+Version 1.0.0 identifies case expectations and scoring. Changes to cases, weights or expected semantics require a new suite version and must be reported alongside results. Package version and suite version are distinct. Benchmark additions must include a defect and correction that produce measurably different outcomes.

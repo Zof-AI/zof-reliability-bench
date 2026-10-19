@@ -1,0 +1,61 @@
+{
+  "name": "@zof-ai/reliability-bench",
+  "version": "0.1.0",
+  "description": "Transparent reproducible synthetic software reliability benchmark",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "zof-reliability-bench": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "docs",
+    "examples",
+    "fixtures"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zof-AI/zof-reliability-bench.git"
+  },
+  "homepage": "https://github.com/Zof-AI/zof-reliability-bench#readme",
+  "bugs": {
+    "url": "https://github.com/Zof-AI/zof-reliability-bench/issues"
+  },
+  "keywords": [
+    "verification",
+    "testing",
+    "zof"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm run build && npm test",
+    "test:package": "node tests/package.mjs"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "22.19.11"
+  },
+  "dependencies": {
+    "@zof-ai/evidence-spec": "0.1.0",
+    "@zof-ai/failure-lab": "0.1.0"
+  }
+}
