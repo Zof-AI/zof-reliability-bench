@@ -21,7 +21,9 @@
     "CHANGELOG.md",
     "docs",
     "examples",
-    "fixtures"
+    "fixtures",
+    "SECURITY.md",
+    "CONTRIBUTING.md"
   ],
   "engines": {
     "node": ">=22"
