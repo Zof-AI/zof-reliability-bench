@@ -1,6 +1,6 @@
 import { mkdtemp,open,rm } from 'node:fs/promises';import { tmpdir } from 'node:os';import path from 'node:path';
-import { runAll,listScenarios } from '@zof-ai/failure-lab';import type {ScenarioResult,Variant} from '@zof-ai/failure-lab';
-import {createEvidence,redactText} from '@zof-ai/evidence-spec';import type {Evidence} from '@zof-ai/evidence-spec';
+import { runAll,listScenarios } from '@zofai/failure-lab';import type {ScenarioResult,Variant} from '@zofai/failure-lab';
+import {createEvidence,redactText} from '@zofai/evidence-spec';import type {Evidence} from '@zofai/evidence-spec';
 export * from './tasks.js';
 export interface BenchmarkOptions {variant:Variant;iterations?:number;label?:string}
 export interface BenchmarkReport {suiteVersion:'1.0.0';variant:Variant;label:string;iterations:number;total:number;passed:number;score:number;categories:string[];results:ScenarioResult[];evidence:Evidence}

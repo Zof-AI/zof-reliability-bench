@@ -1,4 +1,4 @@
-import type {JsonValue} from '@zof-ai/evidence-spec';
+import type {JsonValue} from '@zofai/evidence-spec';
 export interface EvaluationTask {version:'1.0.0';id:string;description:string;cases:Array<{name:string;input:JsonValue;expected:JsonValue}>}
 const tasks:EvaluationTask[]=[
  {version:'1.0.0',id:'deduplicate-payments',description:'Return total amount counting each payment id once.',cases:[{name:'redelivery',input:[{id:'a',amount:10},{id:'a',amount:10}],expected:10},{name:'different payments',input:[{id:'a',amount:3},{id:'b',amount:4}],expected:7},{name:'empty',input:[],expected:0}]},
